@@ -1,0 +1,50 @@
+body {
+    background-color: #FFF5E1;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFC0CB; /* Rosa */
+    padding: 1rem 2rem;
+    color: white;
+}
+
+.logo {
+    font-size: 42px;
+    font-family: 'Pacifico', cursive;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 25px;
+}
+
+.btnLogin button {
+    background-color: #f8bbd0;
+    color: #5d4037;
+    border: 2px solid #5d4037;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btnLogin button:hover {
+    background-color: #4e342e;
+    color: white;
+    transform: scale(1.1);
+}
