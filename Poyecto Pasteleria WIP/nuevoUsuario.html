@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Umai! | Agregar Nuevo Usuario</title>
+    <link rel="stylesheet" href="estiloAdm.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <h2 class="logo-admin">¡Umai! Admin</h2>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admUsuarios.html" class="active">Volver al Panel</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Nuevo Usuario</h1>
+                <p>Registra un nuevo administrador para la tienda</p>
+            </header>
+
+            <section class="admin-card">
+                <form id="formUsuario" action="admin.html" method="POST">
+                    
+                    <div class="input-group">
+                        <label>Nombre Completo:</label>
+                        <input type="text" name="nombre-usuario" placeholder="Ej: Juan Pérez" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Rut (completo sin Guión)</label>
+                        <input type="number" name="rut-usuario" placeholder="Ej: 129734938" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Correo Electrónico:</label>
+                        <input type="email" name="email" placeholder="ejemplo@umai.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Contraseña:</label>
+                        <input type="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Rol de Usuario:</label>
+                        <select name="rol" style="width: 100%; padding: 10px; border: 1px solid #FCF0CF; border-radius: 8px;">
+                            <option value="admin">Administrador</option>
+                            <option value="trab">Trabajador</option>
+                            
+                        </select>
+                    </div>
+
+                    <div class="card-actions">
+                        <button type="submit" class="btn-new">Registrar Usuario</button>
+                        <a href="admUsuarios.html" class="btn-show" style="text-decoration:none; text-align:center;">Cancelar</a>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('formUsuario').addEventListener('submit', function(event) {
+            event.preventDefault(); // Detiene el envío inmediato para mostrar la alerta
+            alert('¡Usuario guardado con éxito!');
+            window.location.href = 'admin.html'; // Redirige después de aceptar la alerta
+        });
+    </script>
+</body>
+</html>

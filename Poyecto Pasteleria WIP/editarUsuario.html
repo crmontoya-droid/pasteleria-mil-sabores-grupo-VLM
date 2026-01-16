@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Umai! | Editar Usuario</title>
+    <link rel="stylesheet" href="estiloAdm.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <h2 class="logo-admin">¡Umai! Admin</h2>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin.html" class="active">Volver al Panel</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Editar Usuario</h1>
+                <p>Actualiza la información del perfil seleccionado</p>
+            </header>
+
+            <section class="admin-card">
+                <form id="formEditarUsuario" action="admin.html" method="POST">
+                    
+                    <div class="input-group">
+                        <label>Nombre del Administrador:</label>
+                        <input type="text" name="nombre-usuario" value="Juan Pérez" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Correo Electrónico:</label>
+                        <input type="email" name="email" value="juan.admin@umai.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Nueva Contraseña (opcional):</label>
+                        <input type="password" name="password" placeholder="Dejar en blanco para no cambiar">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Rol en el Sistema:</label>
+                        <select name="rol">
+                            <option value="admin" selected>Administrador</option>
+                            <option value="editor">Trabajador</option>
+                        </select>
+                    </div>
+
+                    <div class="card-actions">
+                        <button type="submit" class="btn-edit">Actualizar Usuario</button>
+                        <a href="admUsuarios.html" class="btn-show" style="text-decoration:none; text-align:center;">Cancelar</a>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('formEditarUsuario').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('¡Cambios de usuario guardados con éxito!');
+            window.location.href = 'admin.html';
+        });
+    </script>
+</body>
+</html>

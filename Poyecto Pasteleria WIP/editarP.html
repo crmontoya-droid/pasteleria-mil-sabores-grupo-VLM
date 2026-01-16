@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¡Umai! | Editar Producto</title>
+    <link rel="stylesheet" href="estiloAdm.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <h2 class="logo-admin">¡Umai! Admin</h2>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin.html" class="active">Volver al Panel</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Editar Producto</h1>
+                <p>Modifica los detalles del postre seleccionado</p>
+            </header>
+
+            <section class="admin-card">
+                <form action="#" method="POST">
+
+                     <div class="input-group">
+                        <label>ID del producto</label>
+                        <input type="text" name="id-producto" placeholder="Ej: R007 " required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Nombre del Producto:</label>
+                        <input type="text" placeholder="Pastel de Chocolate" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Precio Actual ($):</label>
+                        <input type="number" step="0.01" placeholder="15.000" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Descripción:</label>
+                        <input type="text" placeholder="Delicioso pastel de chocolate" required>
+                    </div>
+
+                    <div class="card-actions">
+                        <button type="submit" class="btn-new" onclick="alert('Cambios Actualizados con exito')">Actualizar Cambios</button>
+                        <button type="submit" class="btn-new2" onclick="return confirm('¿Estas seguro de eliminar el producto?')">Eliminar Producto</button>
+                        <a href="admin.html" class="btn-show" style="text-decoration:none; text-align:center;">Cancelar</a>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

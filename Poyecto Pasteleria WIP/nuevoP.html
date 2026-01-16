@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Umai! | Agregar Nuevo Producto</title>
+    <link rel="stylesheet" href="estiloAdm.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <h2 class="logo-admin">¡Umai! Admin</h2>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin.html" class="active">Volver al Panel</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Nuevo Producto</h1>
+                <p>Ingresa los detalles para el nuevo postre del catálogo</p>
+            </header>
+
+            <section class="admin-card">
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    
+                    
+                    <div class="input-group">
+                        <label>ID del producto</label>
+                        <input type="text" name="id-producto" placeholder="Ej: R007 " required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Nombre del Producto:</label>
+                        <input type="text" name="nombre" placeholder="Ej: Pastel de Chocolate, T007" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Precio de Venta ($):</label>
+                        <input type="number" name="precio" step="0.01" placeholder="Ej: 15.000" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Descripción del Postre:</label>
+                        <textarea name="descripcion" rows="4" placeholder="Describe los ingredientes o sabores..."></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Imagen del Producto:</label>
+                        <input type="file" name="imagen" accept="image/*" required>
+                    </div>
+
+                    <div class="card-actions">
+                        <button type="submit" class="btn-new">Guardar Nuevo Producto</button>
+                        <a href="admin.html" class="btn-show" style="text-decoration:none; text-align:center;">Cancelar</a>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
