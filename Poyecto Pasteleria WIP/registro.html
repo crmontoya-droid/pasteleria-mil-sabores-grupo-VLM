@@ -11,9 +11,9 @@
 
 <body class="pastel-bg">
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card col-md-6 col-lg-5">
-      <div class="icon">🍰</div>
-      <h2 class="mb-4">Crea tu cuenta</h2>
+    <div class="card col-md-6 col-lg-5 p-4 shadow">
+      <div class="icon text-center" style="font-size: 3rem;">🍰</div>
+      <h2 class="mb-4 text-center">Crea tu cuenta</h2>
       <form id="formRegistro">
         <div class="mb-3">
           <label for="nombreRegistro" class="form-label">Nombre completo</label>
@@ -24,17 +24,30 @@
           <input type="email" id="emailRegistro" class="form-control" placeholder="correo@ejemplo.com">
         </div>
         <div class="mb-3">
+          <label for="edadRegistro" class="form-label">Edad</label>
+          <input type="number" id="edadRegistro" class="form-control" placeholder="Tu edad">
+        </div>
+        <div class="mb-3">
           <label for="claveRegistro" class="form-label">Contraseña</label>
           <input type="password" id="claveRegistro" class="form-control" placeholder="Mínimo 8 caracteres">
         </div>
-        <div>
+        <div class="mb-3">
           <label for="confirmarClaveRegistro" class="form-label">Confirmar Contraseña</label>
           <input type="password" id="confirmarClaveRegistro" class="form-control" placeholder="Repite tu contraseña">
         </div>
+        <div class="mb-3">
+          <label for="codigoPromo" class="form-label">Código Promocional (Opcional)</label>
+          <input type="text" id="codigoPromo" class="form-control" placeholder>
+        </div>
+
         <div id="mensajesRegistro" class="mb-3"></div>
+
         <button type="button" class="btn btn-pink w-100" onclick="validarRegistro()">🥐 Registrarme</button>
+
         <div class="mt-3 text-center">
-          <p class="text-muted">¿Ya tienes cuenta? <a href="LoginUsuario.html">Inicia sesión aquí</a></p>
+          <p class="text-muted">¿Ya tienes cuenta? <a href="LoginUsuario.html" class="text-decoration-none">Inicia
+              sesión aquí</a></p>
+          <p><a href="index.html" class="text-decoration-none" style="color: #4e342e;">← Volver al Inicio</a></p>
         </div>
       </form>
     </div>
