@@ -1,0 +1,94 @@
+/* --- ESTILOS PARA FORMULARIOS (NUEVO USUARIO / PRODUCTO) --- */
+
+/* Contenedor de cada campo del formulario */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Etiquetas de los campos */
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #4e342e; /* Color Cacao de tu logo */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Estilo de los cuadros de texto, correos y contraseñas */
+.input-group input, 
+.input-group textarea, 
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #FCF0CF; /* Color crema de tu navbar */
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box; /* Asegura que el padding no agrande el cuadro */
+    transition: border-color 0.3s ease;
+}
+
+/* Efecto al hacer clic en un cuadro de texto */
+.input-group input:focus, 
+.input-group select:focus {
+    border-color: skyblue; /* Color azul de tus enlaces */
+    outline: none;
+}
+
+/* --- ESTILO DE LA ALERTA DE ÉXITO --- */
+
+.alert-success {
+    background-color: #FCF0CF; /* Amarillo pálido */
+    color: #4e342e;
+    padding: 15px;
+    border: 2px solid #4e342e;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    /* Animación para que aparezca suavemente */
+    animation: fadeInDown 0.5s ease-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.btn-edit {
+    background-color: skyblue; /* Color azul de tu marca */
+    color: #5d4037;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%; /* Para que coincida con el diseño de tus tarjetas */
+}
+
+.btn-edit:hover {
+    background-color: #4e342e; /* Color cacao al pasar el mouse */
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Estilo para el selector de roles */
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #FCF0CF;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+}
