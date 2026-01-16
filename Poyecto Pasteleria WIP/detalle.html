@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Detalle del producto</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/stylescarrito.css">
 </head>
 <body>
 
@@ -29,7 +29,18 @@
         <h2 id="detalle-nombre"></h2>
         <p id="detalle-categoria"></p>
         <p id="detalle-descripcion"></p>
+        <h3>Historia de la receta</h3>
+        <p id="detalle-historia"></p>
+
         <p id="detalle-precio" class="price"></p>
+        
+
+        <label for="mensaje">Mensaje en la torta (opcional)</label>
+<textarea
+  id="mensaje"
+  placeholder="Ej: Feliz cumpleaños Sofía"
+></textarea>
+
 
         <button id="btn-add-cart">Añadir al carrito</button>
       </div>
@@ -58,20 +69,33 @@
       document.getElementById("detalle-categoria").textContent =
         "Categoría: " + producto.categoria;
       document.getElementById("detalle-descripcion").textContent = producto.descripcion;
+      document.getElementById("detalle-historia").textContent =
+      producto.historia || "Receta artesanal inspirada en la pastelería tradicional.";
+
 
       document.getElementById("detalle-precio").textContent =
         "$" + producto.precio.toLocaleString("es-CL") + " CLP";
 
       document.getElementById("btn-add-cart")
-        .addEventListener("click", () => {
-          agregarAlCarrito(producto);
-        });
+        .addEventListener("click", agregarProductoDetalle);
+
     } else {
       document.querySelector(".detalle-container").innerHTML =
         "<p>Producto no encontrado</p>";
     }
 
     actualizarContador();
+    function agregarProductoDetalle() {
+  const mensaje = document.getElementById("mensaje").value;
+  
+  const productoPersonalizado = {
+    ...producto,
+    mensaje: mensaje
+  };
+
+  agregarAlCarrito(productoPersonalizado);
+}
+
   </script>
 
 </body>

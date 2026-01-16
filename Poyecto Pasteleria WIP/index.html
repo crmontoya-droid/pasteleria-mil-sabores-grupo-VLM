@@ -1,75 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pastelería Umai | Inicio</title>
-  <link rel="stylesheet" href="Css/home.css">
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-  @keyframes fadeIn {
-      from {
-          opacity: 0;
-          transform: translateY(30px);
-      }
-
-      to {
-          opacity: 1;
-          transform: translateY(0);
-      }
-  }
-
-  .fade-in-container {
-      animation: fadeIn 0.8s ease-out forwards;
-  }
-  </style>
+  <title>Productos | Pastelería</title>
+  <link rel="stylesheet" href="css/stylescarrito.css">
 </head>
-
 <body>
-  <nav class="navbar">
-    <div class="logo">Pasteleria ¡Umai!</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="proyectos.html">Proyectos</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="blogs.html">Blogs</a></li>
-    </ul>
-    <div class="btnLogin">
-      <button onclick="window.location.href='LoginUsuario.html'">Iniciar Sesion</button>
-    </div>
-  </nav>
 
-  <section class="hero">
-    <div class="hero-img">
-      <img src="img/imagenTch.png" alt="Pastel de chocolate">
-    </div>
+  <!-- HEADER -->
+  <header class="header">
+    <h1 class="logo">🍰 Pastelería</h1>
 
-    <aside class="hero-text">
-      <h1 class="TituloIMG">¡Umai!</h1>
+    <nav>
+      <a href="index.html">Productos</a>
+    </nav>
 
-      <div class="pIMG">
-        <p>
-          En Pastelería ¡Umai! creemos que los mejores momentos se celebran con algo dulce.
-          <br>Nacimos con la idea de unir lo artesanal con lo moderno:
-          <br>recetas cuidadas, ingredientes seleccionados y ese detalle que se nota en cada bocado
-        </p>
-        <p>
-          Cada pastel, tartaleta o postre se prepara con cariño y dedicación, buscando que tu
-          “frase favorita” sea siempre la misma: ¡qué rico!
-        </p>
-        <p>
-          Bienvenido/a a un lugar donde el chocolate, la crema y los sabores únicos hacen que quieras
-          volver una y otra vez.
-        </p>
-      </div>
+    <a href="carrito.html" class="cart">
+      🛒 Carrito (<span id="cart-count">0</span>)
+    </a>
+    
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container">
+
+    <!-- CATEGORÍAS -->
+    <aside class="categories">
+      <h2>Categorías</h2>
+      <ul id="category-list">
+        <!-- Se cargan con JS -->
+      </ul>
     </aside>
-  </section>
+
+    <!-- PRODUCTOS -->
+    <section class="products">
+      <h2>Productos</h2>
+
+      <div id="product-grid" class="product-grid">
+        <!-- Cards de productos desde JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
-
 </html>

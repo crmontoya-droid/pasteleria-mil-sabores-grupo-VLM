@@ -86,6 +86,7 @@ const productos = [
     nombre: "Empanada de Manzana",
     precio: 3000,
     imagen: "img/empanadamanzana.jpg",
+    historia: "La empanada de manzana tiene su origen en la tradición europea de repostería, especialmente en España y el norte de Europa, donde era común rellenar masas con frutas de temporada.",
     descripcion: "Pastelería tradicional rellena de manzanas especiadas, perfecta para un dulce desayuno o merienda."
   },
   {
@@ -94,6 +95,7 @@ const productos = [
     nombre: "Tarta de Santiago",
     precio: 6000,
     imagen: "img/tartadesantiago.jpg",
+    historia: "La Tarta de Santiago es un postre tradicional de Galicia, España, cuyo origen se remonta a la Edad Media. Está vinculada al Camino de Santiago y a los conventos gallegos, donde se elaboraba con ingredientes sencillos y disponibles, como almendras, huevos y azúcar. Su símbolo más característico es la cruz de Santiago espolvoreada en azúcar glas, que la identifica como un emblema de la gastronomía gallega.",
     descripcion: "Tradicional tarta española hecha con almendras, azúcar, y huevos, una delicia para los amantes de los postres clásicos."
   },
   {
