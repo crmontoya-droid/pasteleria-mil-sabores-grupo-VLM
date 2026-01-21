@@ -2,74 +2,72 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Carrito de Compras</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastelería Umai | Carrito</title>
+  <link rel="stylesheet" href="Css/home.css">
   <link rel="stylesheet" href="css/stylescarrito.css">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <h1 class="logo">🍰 Pastelería</h1>
-
-    <nav>
-      <a href="index.html">← Seguir comprando</a>
-    </nav>
-
-    <div class="cart">
-      🛒 Carrito (<span id="cart-count">0</span>)
+  <nav class="navbar">
+    <div class="logo">Pasteleria ¡Umai!</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catalogo</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="carrito.html" style="background-color: skyblue; color: #5d4037;">🛒 Carrito</a></li>
+    </ul>
+    <div class="btnLogin">
+      <button onclick="window.location.href='LoginUsuario.html'">Iniciar Sesion</button>
     </div>
-  </header>
+  </nav>
 
-  <!-- CONTENIDO -->
-  <main class="carrito-container">
-    <h2>Carrito de Compras</h2>
+  <main class="cart-page-container">
+    <h2 style="font-family: 'Pacifico'; text-align: center; color: #4e342e;">Tu Carrito de Compras</h2>
 
     <table class="carrito-table">
       <thead>
         <tr>
           <th>Producto</th>
           <th>Precio</th>
-          <th>cantidad</th>
+          <th>Cantidad</th>
           <th>Subtotal</th>
-          <th>Eliminar Producto</th>
+          <th>Acción</th>
         </tr>
       </thead>
       <tbody id="carrito-items">
-        <!-- Productos del carrito -->
-      </tbody>
+        </tbody>
     </table>
 
     <div class="carrito-total">
-        <div class="totales">
-            <p>Subtotal: <span id="subtotal">$0</span></p>
-            <p>Descuento: <span id="descuento">$0</span></p>
-            <h3>Total: <span id="carrito-total">$0</span></h3>
-          </div>
-          
-      <!-- CUPÓN DE DESCUENTO -->
-  <div class="cupon">
-    <h4>Cupón de descuento</h4>
+      
+      <div class="cupon">
+        <h4>¿Tienes un cupón?</h4>
+        <div style="margin-top: 10px;">
+            <input type="text" id="cupon-input" placeholder="Código" style="padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+            <button onclick="aplicarCupon()" style="padding: 8px 15px; border-radius: 5px;">Aplicar</button>
+        </div>
+        <p id="mensaje-cupon" style="margin-top:5px; font-size:0.9rem; font-weight: bold;"></p>
+      </div>
 
-    <input
-      type="text"
-      id="cupon-input"
-      placeholder="Ingresa tu cupón"
-    />
+      <div class="totales" style="text-align: right;">
+        <p>Subtotal: <span id="subtotal">$0</span></p>
+        <p>Descuento: <span id="descuento">$0</span></p>
+        <h3>Total: <span id="carrito-total">$0</span></h3>
+        
+        <div style="margin-top: 20px;">
+            <button onclick="window.location.href='catalogo.html'" style="background: #ccc;">Seguir Comprando</button>
+            <button style="background: #e85a9d; color: white; margin-left: 10px;">Finalizar Compra</button>
+        </div>
+      </div>
 
-    <button onclick="aplicarCupon()">Aplicar</button>
-
-    <p id="mensaje-cupon"></p>
     </div>
-
-    <div class="carrito-actions">
-      <button id="btn-vaciar">Vaciar carrito</button>
-    </div>
-</div>
   </main>
 
   <script src="js/carrito.js"></script>
-
-
-
 </body>
 </html>

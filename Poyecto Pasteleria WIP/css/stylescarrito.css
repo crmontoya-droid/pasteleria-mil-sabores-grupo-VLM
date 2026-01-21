@@ -1,276 +1,220 @@
 /* ===============================
-
-  RESET
-
+   ESTILOS BASE (Compatibilidad)
 =============================== */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
-
-
+/* Heredamos el body de home.css, pero aseguramos el fondo aquí por si acaso */
 body {
-  background-color: #fff5e6;
-  color: #555;
+  background-color: #F5F1EA;
+  color: #5d4037;
+  font-family: 'Poppins', sans-serif;
 }
 
-
-
-/* ===============================
- 
-   HEADER
- 
- =============================== */
-
-.header {
-  background-color: #f8c8dc;
-  padding: 15px 30px;
+/* Contenedor Principal (Para Catálogo y Categorías) */
+.catalog-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 30px;
+  padding: 0 20px;
+  min-height: 60vh;
 }
-
-
-
-.logo {
-  color: #6b3e26;
-  font-size: 1.8rem;
-}
-
-
-
-.header a {
-  text-decoration: none;
-  color: #6b3e26;
-  font-weight: bold;
-}
-
-
-
-.cart {
-  background: #fff;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-weight: bold;
-}
-
-
 
 /* ===============================
- 
-   PRODUCTOS (INDEX)
- 
- =============================== */
+   SIDEBAR (Barra Lateral)
+=============================== */
+.categories-sidebar {
+  flex: 1; /* Ocupa 1/4 del ancho */
+  min-width: 220px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  height: fit-content;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border: 1px solid #f0e6d2;
+}
 
-.productos-container {
+.categories-sidebar h2 {
+  font-family: 'Pacifico', cursive;
+  color: #4e342e;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #f8c8dc; /* Rosa pastel */
+  padding-bottom: 10px;
+}
+
+.categories-sidebar ul { list-style: none; padding: 0; }
+.categories-sidebar li { margin-bottom: 10px; }
+
+.categories-sidebar a, 
+.categories-sidebar li { /* A veces el JS pone click en el li */
+  text-decoration: none;
+  color: #5d4037;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.categories-sidebar li:hover {
+  background-color: #fdf0f6; /* Fondo rosa muy suave al pasar mouse */
+  color: #e85a9d;
+}
+
+/* ===============================
+   GRILLA DE PRODUCTOS
+=============================== */
+.products-area { flex: 3; }
+
+.product-grid { /* Ojo: Tu JS busca el ID 'product-grid', usamos la clase para estilo */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 25px;
-  padding: 40px;
 }
 
-
-
-.producto-card {
+/* TARJETA DE PRODUCTO (Aquí arreglamos las imágenes gigantes) */
+.product-card {
   background: white;
   border-radius: 15px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-
-
-.producto-card:hover {
+.product-card:hover {
   transform: translateY(-5px);
+  border-color: #f8c8dc;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.producto-card img {
+/* IMAGEN CONTROLADA */
+.product-card img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
+  height: 200px; /* ALTO FIJO: Esto evita el efecto "watom" */
+  object-fit: cover; /* Recorta la imagen para que no se deforme */
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
-
-
-.producto-card h3 {
+.product-card h3 {
+  font-size: 1.1rem;
   margin: 10px 0;
-  color: #6b3e26;
+  color: #4e342e;
+  min-height: 50px; /* Para alinear títulos de 2 líneas */
 }
 
-
-
-.price {
-  font-size: 1.2rem;
+.product-card .price {
+  font-size: 1.3rem;
   font-weight: bold;
   color: #e85a9d;
+  margin-bottom: 15px;
 }
 
-
-
-/* ===============================
- 
-   BOTONES
- 
- =============================== */
-
-button {
-  background-color: #e85a9d;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.2s;
-}
-
-
-
-button:hover {
-  background-color: #d94b8a;
-}
-
-
-
-/* ===============================
- 
-   DETALLE PRODUCTO
- 
- =============================== */
-
-.detalle-container {
+/* BOTONES DENTRO DE LA TARJETA */
+.product-card .buttons {
   display: flex;
+  gap: 10px;
   justify-content: center;
-  padding: 40px;
 }
 
-
-
-.detalle-card {
-  background: white;
+.product-card button {
+  padding: 8px 15px;
+  border: none;
   border-radius: 20px;
-  max-width: 900px;
-  display: flex;
-  gap: 30px;
-  padding: 30px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 0.9rem;
 }
 
-
-
-.detalle-card img {
-  width: 350px;
-  border-radius: 15px;
-  object-fit: cover;
+.btn-add {
+  background-color: skyblue;
+  color: #5d4037;
 }
+.btn-add:hover { background-color: #87ceeb; color: white; }
 
-
-
-.detalle-info h2 {
-  color: #6b3e26;
-  margin-bottom: 10px;
+.btn-detail {
+  background-color: #eee;
+  color: #555;
 }
-
-
-
-.detalle-info p {
-  margin: 8px 0;
-}
-
-
-
-textarea {
-  width: 100%;
-  border-radius: 12px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  margin-top: 5px;
-  resize: none;
-}
-
+.btn-detail:hover { background-color: #ddd; }
 
 
 /* ===============================
- 
-   CARRITO
- 
- =============================== */
-
-.carrito-container {
-  padding: 40px;
+   ESTILOS PAGINA CARRITO
+=============================== */
+.cart-page-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
-
-
 
 .carrito-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
 }
-
-
 
 .carrito-table th {
   background: #f8c8dc;
-  padding: 12px;
+  padding: 15px;
   color: #6b3e26;
-}
-
-
-
-.carrito-table td {
-  padding: 12px;
   text-align: center;
 }
 
+.carrito-table td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
 
+/* Imagen pequeña dentro de la tabla */
+.carrito-table img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
 
+/* Totales y Cupón */
 .carrito-total {
-  margin-top: 20px;
-  text-align: right;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-top: 2px solid #eee;
+  padding-top: 20px;
 }
-
-
-
-.totales p,
-.totales h3 {
-  margin: 5px 0;
-}
-
 
 .cupon {
-  background: white;
+  background: #f9f9f9;
   padding: 20px;
   border-radius: 15px;
-  margin-top: 20px;
-  max-width: 350px;
+  border: 1px solid #eee;
 }
 
-
-
-.cupon input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
+.totales h3 {
+  font-size: 1.5rem;
+  color: #e85a9d;
+  margin-top: 10px;
 }
 
-
-
-.carrito-actions {
-  margin-top: 20px;
-  text-align: right;
+/* Responsive */
+@media (max-width: 768px) {
+  .catalog-container { flex-direction: column; }
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .carrito-total { flex-direction: column; }
 }
