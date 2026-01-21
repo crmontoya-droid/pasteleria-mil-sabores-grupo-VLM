@@ -1,0 +1,116 @@
+    /* --- Sidebar con el Diseño de la Página Principal --- */
+    .sidebar {
+        height: 100vh;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #FCF0CF;
+        /* Fondo crema idéntico al navbar principal */
+        padding-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+        border-right: 1px solid rgba(78, 52, 46, 0.1);
+        /* Sutil separación */
+      }
+  
+      .sidebar a {
+        padding: 15px 25px;
+        text-decoration: none;
+        font-family: 'Pacifico', cursive;
+        /* Fuente Pacifico de la principal */
+        font-size: 1.6rem;
+        color: #87CEEB;
+        /* Azul cielo de los links principales */
+        display: block;
+        transition: 0.3s;
+        text-align: center;
+      }
+  
+      .sidebar a:hover {
+        color: #4e342e;
+        /* Tono cacao al pasar el mouse */
+        transform: scale(1.05);
+      }
+  
+      /* Botón de Iniciar Sesión estilo Píldora */
+      .btn-sesion-sidebar {
+        background-color: #87CEEB;
+        /* Fondo azul cielo */
+        border: 2px solid #4e342e;
+        /* Borde oscuro como en tu imagen */
+        border-radius: 50px;
+        /* Forma de píldora */
+        padding: 10px 20px;
+        font-family: 'Poppins', sans-serif;
+        color: #4e342e;
+        font-weight: 600;
+        margin: auto 20px 30px 20px;
+        /* Se queda al final de la barra */
+        transition: 0.3s;
+      }
+  
+      .btn-sesion-sidebar:hover {
+        background-color: #4e342e;
+        color: #FCF0CF;
+      }
+  
+      /* --- Ajuste del Contenido Principal --- */
+      .main-content {
+        margin-left: 250px;
+        padding: 20px;
+      }
+  
+      .text-cacao {
+        color: #4e342e;
+      }
+  
+      .blog-header-title {
+        font-family: 'Pacifico', cursive;
+        font-size: 3.5rem;
+      }
+  
+      .blog-card {
+        border: none;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        background-color: #fff;
+      }
+  
+      .blog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+      }
+  
+      .btn-pink {
+        background-color: #ff85a1 !important;
+        color: white !important;
+        border-radius: 15px !important;
+        font-weight: 600;
+        border: none !important;
+      }
+  
+      .card-img-top {
+        height: 220px;
+        object-fit: cover;
+      }
+  
+      @media (max-width: 992px) {
+        .sidebar {
+          width: 100%;
+          height: auto;
+          position: relative;
+          border-right: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+  
+        .main-content {
+          margin-left: 0;
+        }
+  
+        .btn-sesion-sidebar {
+          margin: 20px;
+        }
+      }
