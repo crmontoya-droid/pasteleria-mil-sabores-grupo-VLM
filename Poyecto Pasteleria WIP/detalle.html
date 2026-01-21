@@ -2,100 +2,130 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Detalle del producto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastelería Umai | Detalle</title>
+  
+  <link rel="stylesheet" href="Css/home.css">
   <link rel="stylesheet" href="css/stylescarrito.css">
+  
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <h1 class="logo">🍰 Pastelería</h1>
-
-    <nav>
-      <a href="index.html">← Volver a productos</a>
-    </nav>
-
-    <div class="cart">
-      🛒 Carrito (<span id="cart-count">0</span>)
+  <nav class="navbar">
+    <div class="logo">Pasteleria ¡Umai!</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html" style="color: #5d4037; background: skyblue;">Catalogo</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="carrito.html">🛒 <span id="cart-count">0</span></a></li>
+    </ul>
+    <div class="btnLogin">
+      <button onclick="window.location.href='LoginUsuario.html'">Iniciar Sesion</button>
     </div>
-  </header>
+  </nav>
 
-  <!-- DETALLE PRODUCTO -->
-  <main class="detalle-container">
-    <div class="detalle-card">
-      <img id="detalle-img" alt="Producto">
+  <main class="detalle-main-container">
+    
+    <div id="loading-msg" style="text-align: center;">Cargando producto...</div>
+
+    <div id="detalle-content" class="detalle-card" style="display: none;">
+      
+      <img id="detalle-img" src="" alt="Producto">
 
       <div class="detalle-info">
-        <h2 id="detalle-nombre"></h2>
-        <p id="detalle-categoria"></p>
-        <p id="detalle-descripcion"></p>
-        <h3>Historia de la receta</h3>
-        <p id="detalle-historia"></p>
-
-        <p id="detalle-precio" class="price"></p>
+        <span id="detalle-categoria" class="detalle-categoria">Categoría</span>
+        <h2 id="detalle-nombre">Nombre del Producto</h2>
         
+        <p id="detalle-descripcion" class="detalle-descripcion">Descripción corta...</p>
+        
+        <div style="background: #fff8f0; padding: 10px; border-radius: 10px; border-left: 4px solid #e85a9d;">
+            <strong>Historia:</strong>
+            <p id="detalle-historia" class="detalle-historia" style="font-size: 0.9rem; margin:0;"></p>
+        </div>
 
-        <label for="mensaje">Mensaje en la torta (opcional)</label>
-<textarea
-  id="mensaje"
-  placeholder="Ej: Feliz cumpleaños Sofía"
-></textarea>
+        <p id="detalle-precio" class="detalle-precio">$0</p>
 
+        <div class="mensaje-box">
+          <label for="mensaje">¿Quieres agregar un mensaje en la torta?</label>
+          <textarea id="mensaje" placeholder="Ej: Feliz Cumpleaños Mamá (Opcional)"></textarea>
+        </div>
 
-        <button id="btn-add-cart">Añadir al carrito</button>
+        <div class="acciones-detalle">
+          <a href="catalogo.html" class="btn-volver">← Volver</a>
+          <button id="btn-add-cart" class="btn-agregar-grande">Añadir al Carrito 🛒</button>
+        </div>
       </div>
+
     </div>
   </main>
 
-  <!-- SCRIPTS -->
   <script src="js/data.js"></script>
   <script src="js/carrito.js"></script>
 
   <script>
-    // ===============================
-    // OBTENER ID DESDE LA URL
-    // ===============================
-    const params = new URLSearchParams(window.location.search);
-    const idProducto = params.get("id");
+    // Lógica Específica para cargar el detalle
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Obtener ID de la URL
+        const params = new URLSearchParams(window.location.search);
+        const idProducto = params.get("id");
 
-    // ===============================
-    // BUSCAR PRODUCTO
-    // ===============================
-    const producto = productos.find(p => p.id === idProducto);
+        // 2. Buscar producto en data.js
+        const producto = productos.find(p => p.id === idProducto);
+        
+        const loading = document.getElementById("loading-msg");
+        const contenido = document.getElementById("detalle-content");
 
-    if (producto) {
-      document.getElementById("detalle-img").src = producto.imagen;
-      document.getElementById("detalle-nombre").textContent = producto.nombre;
-      document.getElementById("detalle-categoria").textContent =
-        "Categoría: " + producto.categoria;
-      document.getElementById("detalle-descripcion").textContent = producto.descripcion;
-      document.getElementById("detalle-historia").textContent =
-      producto.historia || "Receta artesanal inspirada en la pastelería tradicional.";
+        if (producto) {
+            loading.style.display = "none";
+            contenido.style.display = "flex"; // Mostrar tarjeta
 
+            // 3. Rellenar datos
+            document.getElementById("detalle-img").src = producto.imagen;
+            document.getElementById("detalle-nombre").textContent = producto.nombre;
+            document.getElementById("detalle-categoria").textContent = producto.categoria;
+            document.getElementById("detalle-descripcion").textContent = producto.descripcion;
+            document.getElementById("detalle-historia").textContent = 
+                producto.historia || "Una deliciosa receta artesanal hecha con los mejores ingredientes.";
+            document.getElementById("detalle-precio").textContent = 
+                "$" + producto.precio.toLocaleString("es-CL");
 
-      document.getElementById("detalle-precio").textContent =
-        "$" + producto.precio.toLocaleString("es-CL") + " CLP";
+            // 4. Configurar botón Añadir
+            document.getElementById("btn-add-cart").onclick = () => {
+                const mensaje = document.getElementById("mensaje").value.trim();
+                
+                // Creamos un objeto copia para no modificar el original
+                // y le agregamos el mensaje si existe
+                const productoParaCarrito = { ...producto };
+                if(mensaje) {
+                    productoParaCarrito.mensaje = mensaje;
+                    productoParaCarrito.nombre = producto.nombre + " (Dedicatoria: " + mensaje + ")";
+                }
 
-      document.getElementById("btn-add-cart")
-        .addEventListener("click", agregarProductoDetalle);
+                agregarAlCarrito(productoParaCarrito);
+                
+                // Feedback visual
+                const btn = document.getElementById("btn-add-cart");
+                const textoOriginal = btn.textContent;
+                btn.textContent = "¡Agregado!";
+                btn.style.backgroundColor = "#98fb98"; // Verde claro
+                setTimeout(() => {
+                    btn.textContent = textoOriginal;
+                    btn.style.backgroundColor = ""; 
+                }, 1500);
+            };
 
-    } else {
-      document.querySelector(".detalle-container").innerHTML =
-        "<p>Producto no encontrado</p>";
-    }
+        } else {
+            loading.innerHTML = "<h3>Producto no encontrado 😕</h3><br><a href='catalogo.html' class='btn-volver'>Volver al catálogo</a>";
+        }
 
-    actualizarContador();
-    function agregarProductoDetalle() {
-  const mensaje = document.getElementById("mensaje").value;
-  
-  const productoPersonalizado = {
-    ...producto,
-    mensaje: mensaje
-  };
-
-  agregarAlCarrito(productoPersonalizado);
-}
-
+        // Actualizar contador del carrito en navbar
+        actualizarContador();
+    });
   </script>
 
 </body>
