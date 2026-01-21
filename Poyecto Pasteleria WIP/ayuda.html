@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Umai! | Centro de Ayuda</title>
+    
+    <link rel="stylesheet" href="css/estiloAdm.css">
+    <link rel="stylesheet" href="css/ayuda.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+        const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+        if (!usuarioLogueado || usuarioLogueado !== 'admin@umai.com') {
+            window.location.href = 'LoginUsuario.html';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="admin-container">
+        
+        <aside class="sidebar">
+            <h2 class="logo-admin">¡Umai! Admin</h2>
+            <nav class="admin-nav">
+                <p class="nav-label">Gestión</p>
+                <ul>
+                    <li><a href="admin.html">Productos</a></li>
+                    <li><a href="admUsuarios.html">Usuarios</a></li>
+                </ul>
+                
+                <p class="nav-label">Acciones</p>
+                <ul>
+                    <li><a href="index.html">Ver Sitio Público</a></li>
+                    <li><a href="#" id="btn-logout">Cerrar Sesión</a></li>
+                </ul>
+                
+                <p class="nav-label">Sistema</p>
+                <ul>
+                    <li><a href="perfil.html" class="nav-perfil">Mi Perfil</a></li>
+                    <li><a href="ayuda.html" class="nav-help active" style="color: skyblue;">Centro de Ayuda</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Centro de Ayuda</h1>
+                <p>Estamos aquí para ayudarte a gestionar la pastelería</p>
+            </header>
+
+            <div class="help-intro">
+                <h3>🛠️ ¿Necesitas asistencia técnica?</h3>
+                <p>Si tienes problemas con el sistema, errores de carga o necesitas una nueva funcionalidad, por favor contacta directamente con nuestro equipo de <strong>Soporte Informático</strong>.</p>
+            </div>
+
+            <div class="team-grid">
+                
+                <div class="support-card">
+                    <div class="support-avatar">💻</div>
+                    <h3 class="support-name">Lorenzo Ruiz</h3>
+                    <span class="support-role">Soporte Técnico</span>
+                    <div class="contact-info">
+                        <p>📞 +56 9 4521 8890</p>
+                        <p>📧 lorenzo@umai.cl</p>
+                    </div>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-avatar">🔧</div>
+                    <h3 class="support-name">Valentín Panizza</h3>
+                    <span class="support-role">Ingeniero de Sistemas</span>
+                    <div class="contact-info">
+                        <p>📞 +56 9 7765 1234</p>
+                        <p>📧 valentin@umai.cl</p>
+                    </div>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-avatar">🛡️</div>
+                    <h3 class="support-name">Millaray Peñaloza</h3>
+                    <span class="support-role">Jefa de Seguridad</span>
+                    <div class="contact-info">
+                        <p>📞 +56 9 9900 3322</p>
+                        <p>📧 millaray@umai.cl</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('btn-logout').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('usuarioLogueado');
+            window.location.href = 'LoginUsuario.html';
+        });
+    </script>
+
+</body>
+</html>

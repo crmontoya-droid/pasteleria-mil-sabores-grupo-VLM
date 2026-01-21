@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Umai! | Mi Perfil</title>
+    
+    <link rel="stylesheet" href="css/estiloAdm.css">
+    <link rel="stylesheet" href="css/miperfil.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+        const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+        if (!usuarioLogueado || usuarioLogueado !== 'admin@umai.com') {
+            window.location.href = 'LoginUsuario.html';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="admin-container">
+        
+        <aside class="sidebar">
+            <h2 class="logo-admin">¡Umai! Admin</h2>
+            <nav class="admin-nav">
+                <p class="nav-label">Gestión</p>
+                <ul>
+                    <li><a href="admin.html">Productos</a></li>
+                    <li><a href="admUsuarios.html">Usuarios</a></li>
+                </ul>
+                
+                <p class="nav-label">Acciones</p>
+                <ul>
+                    <li><a href="index.html">Ver Sitio Público</a></li>
+                    <li><a href="#" id="btn-logout">Cerrar Sesión</a></li>
+                </ul>
+                
+                <p class="nav-label">Sistema</p>
+                <ul>
+                    <li><a href="perfil.html" class="nav-perfil active" style="color: skyblue;">Mi Perfil</a></li>
+                    <li><a href="ayuda.html" class="nav-help">Centro de Ayuda</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Mi Perfil</h1>
+                <p>Gestiona tus datos personales y seguridad</p>
+            </header>
+
+            <div class="perfil-wrapper">
+                
+                <div class="perfil-card-resumen">
+                    <div class="avatar-container">👨‍🍳</div>
+                    <h3>Administrador</h3>
+                    <p style="color: #777;">admin@umai.com</p>
+                    <span class="perfil-role">Super Admin</span>
+                    <br><br>
+                    <p style="font-size: 0.8rem; color: #aaa;">Miembro desde: 2024</p>
+                </div>
+
+                <div class="perfil-card-form">
+                    <form id="perfilForm">
+                        
+                        <h3 class="form-section-title">Información Personal</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" value="Juan" placeholder="Tu Nombre">
+                            </div>
+                            <div class="form-group">
+                                <label>Apellido</label>
+                                <input type="text" value="Pérez" placeholder="Tu Apellido">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Correo Electrónico</label>
+                                <input type="email" value="admin@umai.com" readonly style="background-color: #f0f0f0; cursor: not-allowed;" title="No puedes cambiar tu correo de admin">
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono (Opcional)</label>
+                                <input type="tel" placeholder="+56 9 1234 5678">
+                            </div>
+                        </div>
+
+                        <h3 class="form-section-title">Seguridad</h3>
+                        
+                        <div class="form-group">
+                            <label>Contraseña Actual</label>
+                            <input type="password" placeholder="••••••••">
+                        </div>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nueva Contraseña</label>
+                                <input type="password" placeholders
